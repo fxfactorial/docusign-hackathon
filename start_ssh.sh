@@ -15,5 +15,5 @@ INSTANCE_TYPE="n1-highmem-8" # budget: "n1-highmem-4"
 #         --metadata="install-nvidia-driver=True" \
 #         --preemptible
 
-gcloud compute instances start $INSTANCE_NAME --zone=$ZONE
+# gcloud compute instances start $INSTANCE_NAME --zone=$ZONE
 gcloud compute ssh --zone=$ZONE jupyter@$INSTANCE_NAME

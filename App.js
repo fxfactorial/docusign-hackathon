@@ -15,11 +15,13 @@ const instructions = Platform.select({
   android: 'Double tap R on your keyboard to reload,\n' + 'Shake or press menu button for dev menu',
 });
 
+const APP_ROUTE = 'http://34.94.236.97:80/letter.pdf';
+
 class Hack extends Component {
   state = {
     forests: false,
     climate_change: false,
-    show_pdf: false,
+    show_pdf: true,
   };
 
   render() {
@@ -27,7 +29,7 @@ class Hack extends Component {
     let content = null;
 
     if (show_pdf) {
-      //
+      content = <WebView useWebKit={true} source={{ uri: APP_ROUTE }} style={{ marginTop: 20 }} />;
     } else {
       content = (
         <View>
@@ -37,7 +39,7 @@ class Hack extends Component {
         </View>
       );
     }
-    return <View>{content}</View>;
+    return content;
   }
 }
 
@@ -46,9 +48,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <Text style={styles.welcome}>Welcome to React Native!</Text>
-        <Text style={styles.instructions}>To get started, edit App.js</Text>
-        <Text style={styles.instructions}>{instructions}</Text>
+        <Hack />
       </View>
     );
   }
